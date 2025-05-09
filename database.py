@@ -55,3 +55,15 @@ def sales_per_day():
 
 sales_day=sales_per_day()
 # print(sales_day)
+
+
+def check_user(email):
+    query="select * from users where email = %s"
+    cur.execute(query,(email,))
+    user=cur.fetchone()
+    return user
+
+def add_user(values):
+    insert="insert into users(firstname, lastname, email, password)values(%s, %s, %s, %s)"
+    cur.execute(insert,values)
+    conn.commit()
