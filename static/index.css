@@ -90,3 +90,44 @@
     right: 1rem;
     z-index: 2;
 }
+.nairobi {
+  margin-top: 50px;
+}
+
+.nairobi img {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.counter {
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+  opacity: 0;
+  /* Initially hidden */
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.contnai {
+  padding-top: 50px;
+}
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.box6 h2 {
+  text-align: center;
+  color: rgb(102, 102, 102);
+  font-size: 30px;
+  margin-top: 80px;
+}
+
+.box6 .patners {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box6 .patners .p1 img {
+  width: 80%;
+}

@@ -1,32 +1,141 @@
 {% extends "base.html" %}
 {% block title %} Products Page {% endblock%}
 
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='products.css') }}">
+{% endblock %}
+
+
 {% block content%}
 
 <h1>Produts Page</h1>
 
-<form>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Product Name</label>
-        <input type="text" class="form-control" name="p_name" id="exampleInputEmail1">
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Products
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div>
+                    <form action="/products" method="post">
+                        <h1>ADD PRODUCTS</h1>
+                        <label>Product Name</label>
+                        <input type="text" name="p_name">
+                        <lablel>Buying Price</lablel>
+                        <input type="number" name="b_price">
+                        <lablel>Selling_price</lablel>
+                        <input type="number" name="s_price">
+                        <lablel>Stock Quantity</lablel>
+                        <input type="number" name="s_quantity">
+                        <button type="submit">Add Product</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Buying Price</label>
-        <input type="number" class="form-control" name="b_price" id="exampleInputPassword1">
+</div>
+
+<!-- Trigger Button -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+    Open Form
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-none">
+            <div class="modal-body">
+
+                <!-- Your Form Starts Here -->
+                <div>
+                    <form action="/products" method="post">
+                        <h1>ADD PRODUCTS</h1>
+                        <label>Product Name</label>
+                        <input type="text" name="p_name">
+                        <lablel>Buying Price</lablel>
+                        <input type="number" name="b_price">
+                        <lablel>Selling_price</lablel>
+                        <input type="number" name="s_price">
+                        <lablel>Stock Quantity</lablel>
+                        <input type="number" name="s_quantity">
+                        <button type="submit">Add Product</button>
+                    </form>
+                </div>
+                <!-- Your Form Ends Here -->
+
+                <!-- Close Button -->
+                <div class="text-end mt-3">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Selling Price</label>
-        <input type="number" class="form-control" name="s_price" id="exampleInputPassword1">
+</div>
+
+<!-- Trigger Button -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+    Open Form
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 bg-transparent shadow-none">
+
+            <div class="modal-body d-flex justify-content-center">
+                <div class="p-4 bg-white rounded-4" style="min-width: 300px; max-width: 500px; width: 100%;">
+
+                    <!-- Your Form Starts Here -->
+                    <form>
+                        <h5 class="text-center mb-4">ADD PRODUCTS</h5>
+                        <div class="mb-3">
+                            <label class="form-label">Product Name</label>
+                            <input type="text" class="form-control rounded-pill" placeholder="Enter product name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Buying Price</label>
+                            <input type="number" class="form-control rounded-pill" placeholder="Enter buying price">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Selling Price</label>
+                            <input type="number" class="form-control rounded-pill" placeholder="Enter selling price">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Stock Quantity</label>
+                            <input type="number" class="form-control rounded-pill" placeholder="Enter stock quantity">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Add Product</button>
+                    </form>
+                    <!-- Your Form Ends Here -->
+
+                    <!-- Close Button -->
+                    <div class="text-end mt-3">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Stock Quantity</label>
-        <input type="number" class="form-control" name="s_quantity" id="exampleInputPassword1">
-    </div>
+</div>
 
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+
 
 
 

@@ -13,10 +13,30 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
     {% block extra_css %}{% endblock %}
     <style>
-        .navv a{
+        .navv a {
             list-style: none;
             text-decoration: none;
         }
+        .footer {
+            background-color: rgb(231, 231, 231);
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .footer h3 {
+            color: black;
+        }
+        .nav2 img{
+            height: 80px;
+        }
+        .icons a{
+            margin: 20px;
+            /* margin-top: 20px; */
+        }
+       
     </style>
 </head>
 
@@ -50,12 +70,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">Dashboard</a>
                         </li>
-                        
+
 
                     </ul>
 
                 </div>
-                
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -70,8 +90,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Login</a>
                         </li>
-                        
-                        
+
+
 
                     </ul>
 
@@ -80,12 +100,60 @@
         </nav>
     </div>
     <div>
+
+
         {% block content %}
 
 
 
 
         {% endblock %}
+    </div>
+
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <footer class=" py-3">
+                <div class="div">
+                    <div class="row">
+                        <div class="col">
+                            <h1>MY DUKA</h1>
+                        </div>
+                        <div class="col text-start">
+                            <h3>Quick Links</h3>
+                            <a href="">Home</a><br>
+                            <a href="">Products</a><br>
+                            <a href="">Sales</a><br>
+                            <a href="">Dashboard</a>
+                        </div>
+                        
+                        <div class="col text-start">
+                            <h3>Branches</h3>
+                            <a href="">Nairobi CBD</a><br>
+                            <a href="">Kisumu</a><br>
+                            <a href="">Mombasa</a><br>
+                            <a href="">Eldoret</a><br>
+                            <a href="">Nakuru</a><br>
+                            <a href="">Narok</a><br>
+                        </div>
+                        <div class="col text-start icons">
+                            <h3 style="margin-bottom: 20px;">Reach Us</h3>
+                            <a href=""><i class="fa-brands fa-x-twitter fa-xl"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                            <a href=""><i class="fa-brands fa-facebook-f fa-xl"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright mt-5">
+                    © 2025 My Duka | <a href="#" class=" text-decoration-none">DEVELOPER LESHAN</a> | <a href="#"
+                        class=" text-decoration-none">CONTACT</a>
+                </div>
+            </footer>
+        </div>
+
     </div>
 
 
