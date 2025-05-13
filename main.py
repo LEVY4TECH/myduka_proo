@@ -53,12 +53,12 @@ def dashboard():
     sales_day=sales_per_day()
 
     product_name=[i[0] for i in profit_product]
-    p_product=[i[1] for i in profit_product]
-    s_product=[i[1] for i in sales_product]
+    p_product=[ float(i[1]) for i in profit_product]
+    s_product=[ float(i[1]) for i in sales_product]
 
-    date=[i[0] for i in profit_day]
-    p_day=[i[1] for i in profit_day]
-    s_day=[i[1] for i in sales_day]
+    date=[ str(i[0]) for i in profit_day]
+    p_day=[ float(i[1]) for i in profit_day]
+    s_day=[ float(i[1]) for i in sales_day]
     
     return render_template('dashboard.html',product_name=product_name,p_product=p_product,s_product=s_product,date=date,p_day=p_day,s_day=s_day)
 
@@ -102,6 +102,10 @@ def login():
             else:
                 return redirect(url_for('login'))
     return render_template('login.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
 

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %} contact Page {% endblock%}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<!-- yellow block -->
+<div class="yellowbloc bg-warning">
+    <div class="row conte">
+        <!-- left side -->
+        <div class="col">
+            <h3>Join our mailing list</h3>
+            <p>Sign up now and be the first now about exclusive offers,<br>
+                product updates and exciting news and announcements.</p>
+            <div class="subscribe-container">
+                <div class="subscribe-box">
+                    <input type="email" placeholder="Email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- right side -->
+        <div class="col">
+            <h3>
+                Let us guide you through your<br>
+                life's journey
+            </h3>
+            <p>Chat with us on WhatsApp, Call us directly or Email us.</p>
+            <div class="icons">
+                <div class="row">
+                    <div class="col-md-3">
+                        <i class="fa-brands fa-whatsapp fa-2xl" style="color: #a20b1a;"></i>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa-solid fa-phone fa-2xl" style="color: #920c0c;"></i>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa-solid fa-envelope fa-2xl" style="color: #900909;"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="container" style="margin-top: 30px;">
+    <h3>You're invited to visit our physical office</h3>
+    <div class="row">
+        <div class="col-6">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.808778620874!2d36.82017157472447!3d-1.2889389986988062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d844cb44d5%3A0x8400193d944f808f!2sKICC%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1747098801259!5m2!1sen!2ske"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
