@@ -18,16 +18,16 @@ def products():
     products=fetch_products()
     return render_template('products.html',products=products)
 
-@app.route('/add_products', methods=['GET','POST'])
+@app.route('/add_products', methods=['POST'])
 def add_products():
-    if request.method=='POST':
-        productname=request.form['p_name']
-        buying_price=request.form['b_price']
-        selling_price=request.form['s_price']
-        stock_quantity=request.form['s_quantity']
-        new_product=(productname,buying_price,selling_price,stock_quantity)
-        insert_products(new_product)
-        return redirect(url_for('products'))
+    
+    productname=request.form['p_name']
+    buying_price=request.form['b_price']
+    selling_price=request.form['s_price']
+    stock_quantity=request.form['s_quantity']
+    new_product=(productname,buying_price,selling_price,stock_quantity)
+    insert_products(new_product)
+    return redirect(url_for('products'))
 
 
 @app.route('/sales')
