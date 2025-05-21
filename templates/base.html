@@ -46,6 +46,19 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
+
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+                <div class="container mt-3">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissable fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
     <div class="container">
         <!-- Start of navbar 2 -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary nav2">
@@ -63,6 +76,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
                         </li>
+                        {% if session.email %}
                         <li class="nav-item">
                             <a class="nav-link" href="/products">Products</a>
                         </li>
@@ -75,6 +89,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact Us</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Log Out</a>
+                        </li>
+                        {% else %}
 
 
 
@@ -96,6 +114,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Login</a>
                         </li>
+                        {% endif %}
                         
 
 

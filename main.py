@@ -1,8 +1,10 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,request,redirect,url_for,session,flash
 
 from database import fetch_products,fetch_sales,insert_products,insert_sales,profit_per_product,profit_per_day,sales_per_product,sales_per_day,check_user,add_user
 
 from flask_bcrypt import Bcrypt
+
+from functools import wraps
 
 app=Flask(__name__)
 app.secret_key='levyyy'
@@ -12,6 +14,15 @@ bcrypt=Bcrypt(app)
 @app.route('/')
 def home():
     return render_template('index.html')
+
+def login_required(f):
+    @wraps(f)
+    def protected(*args,**kwargs):
+        if 'email' not in session:
+            return redirect(url_for('login'))
+        return f(*args,**kwargs)
+    return protected
+    
 
 @app.route('/products')
 def products():
@@ -46,6 +57,7 @@ def make_sales():
         return redirect(url_for('sales'))
 
 @app.route('/dashboard')
+@login_required
 def dashboard():
     profit_product=profit_per_product()
     sales_product=sales_per_product()
@@ -95,17 +107,28 @@ def login():
         user=check_user(email)
 
         if not user:
+            flash("Please register to be a user", "error")
             return redirect(url_for('register'))
         else:
             if bcrypt.check_password_hash(user[-1],password):
-                return redirect(url_for('dashboard'))
+                session['email'] = email
+                flash("Logged in successfully", "success")
+                return redirect(url_for('home'))
             else:
+                flash("Wrong password, Try again", "error")
                 return redirect(url_for('login'))
     return render_template('login.html')
 
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+@app.route('/logout')
+def logout():
+    session.pop('email',None)
+    flash("Logged out successfully", "info")
+    return redirect(url_for('login'))
+
 
 
 
