@@ -1,0 +1,75 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .dashboard-title {
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .info-box {
+    border-radius: 12px;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .info-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .box-icon {
+    font-size: 36px;
+    opacity: 0.9;
+  }
+  
+  .box-content h5 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .box-content h3 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+  
+  /* Background Colors */
+  .bg-sales {
+    background: linear-gradient(to right, #007bff, #0056b3);
+  }
+  
+  .bg-profit {
+    background: linear-gradient(to right, #28a745, #1c7430);
+  }
+  
+  .bg-month-sales {
+    background: linear-gradient(to right, #17a2b8, #0f6674);
+  }
+  
+  .bg-month-profit {
+    background: linear-gradient(to right, #ffc107, #e0a800);
+  }
+  
+  .bg-users {
+    background: linear-gradient(to right, #6610f2, #4a00e0);
+  }
+  
+  .bg-product {
+    background: linear-gradient(to right, #fd7e14, #c05600);
+  }
+  
+  .bg-warning-light {
+    background: #fff3cd;
+    color: #856404;
+  }
+  
+  .bg-success-light {
+    background: #d4edda;
+    color: #155724;
+  }

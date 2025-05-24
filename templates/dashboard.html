@@ -1,9 +1,109 @@
 {% extends "base.html" %}
 {% block title %} Dashboard Page {% endblock%}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+{% endblock %}
+
+
 
 {% block content %}
-<h1>Dashboard Page</h1>
+<!-- <h1>Dashboard Page</h1> -->
+
+<body class="bg-light">
+  <div class="container py-4">
+    <h2 class="mb-4 text-center dashboard-title">Business Performance Dashboard</h2>
+
+    <div class="row g-4">
+      <!-- Total Sales -->
+      <div class="col-md-4">
+        <div class="info-box bg-sales shadow-sm">
+          <div class="box-icon"><i class="fas fa-dollar-sign"></i></div>
+          <div class="box-content">
+            <h5>Total Sales</h5>
+            <h3>{{tt_sales}}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Profit -->
+      <div class="col-md-4">
+        <div class="info-box bg-profit shadow-sm">
+          <div class="box-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="box-content">
+            <h5>Total Profit</h5>
+            <h3>{{tt_profit}}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales This Month -->
+      <div class="col-md-4">
+        <div class="info-box bg-month-sales shadow-sm">
+          <div class="box-icon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="box-content">
+            <h5>Sales This Month</h5>
+            <h3>{{tt_sales_m}}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profit This Month -->
+      <div class="col-md-4">
+        <div class="info-box bg-month-profit shadow-sm">
+          <div class="box-icon"><i class="fas fa-coins"></i></div>
+          <div class="box-content">
+            <h5>Profit This Month</h5>
+            <h3>{{tt_profit_m}}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Total Users -->
+      <div class="col-md-4">
+        <div class="info-box bg-users shadow-sm">
+          <div class="box-icon"><i class="fas fa-users"></i></div>
+          <div class="box-content">
+            <h5>Total Users</h5>
+            <h3>1,920</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Best Selling Product -->
+      <div class="col-md-4">
+        <div class="info-box bg-product shadow-sm">
+          <div class="box-icon"><i class="fas fa-star"></i></div>
+          <div class="box-content">
+            <h5>Best Seller</h5>
+            <h3>Organic Honey</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Low Stock Products -->
+      <div class="col-md-6">
+        <div class="info-box bg-warning-light shadow-sm">
+          <div class="box-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <div class="box-content">
+            <h5>Low Stock</h5>
+            <p>Tomatoes, Eggs, Mangoes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Satisfaction -->
+      <div class="col-md-6">
+        <div class="info-box bg-success-light shadow-sm">
+          <div class="box-icon"><i class="fas fa-smile"></i></div>
+          <div class="box-content">
+            <h5>Customer Satisfaction</h5>
+            <h3>94%</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

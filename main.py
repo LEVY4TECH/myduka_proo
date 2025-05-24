@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,redirect,url_for,session,flash
 
-from database import fetch_products,fetch_sales,insert_products,insert_sales,profit_per_product,profit_per_day,sales_per_product,sales_per_day,check_user,add_user
+from database import fetch_products,fetch_sales,insert_products,insert_sales,profit_per_product,profit_per_day,sales_per_product,sales_per_day,check_user,add_user,total_sales,total_profit,total_sales_m,total_profit_m
 
 from flask_bcrypt import Bcrypt
 
@@ -63,6 +63,10 @@ def dashboard():
     sales_product=sales_per_product()
     profit_day=profit_per_day()
     sales_day=sales_per_day()
+    t_sales = total_sales()
+    t_profit = total_profit()
+    t_sales_m = total_sales_m()
+    t_profit_m = total_profit_m()
 
     product_name=[i[0] for i in profit_product]
     p_product=[ float(i[1]) for i in profit_product]
@@ -71,8 +75,13 @@ def dashboard():
     date=[ str(i[0]) for i in profit_day]
     p_day=[ float(i[1]) for i in profit_day]
     s_day=[ float(i[1]) for i in sales_day]
-    
-    return render_template('dashboard.html',product_name=product_name,p_product=p_product,s_product=s_product,date=date,p_day=p_day,s_day=s_day)
+
+    tt_sales = float(t_sales[0][0]) if t_sales[0][0] is not None else 0.0
+    tt_profit = float(t_profit[0][0]) if t_profit[0][0] is not None else 0.0
+    tt_sales_m = float(t_sales_m[0][0]) if t_sales_m[0][0] is not None else 0.0
+    tt_profit_m = float(t_profit_m[0][0]) if t_profit_m[0][0] is not None else 0.0
+
+    return render_template('dashboard.html',product_name=product_name,p_product=p_product,s_product=s_product,date=date,p_day=p_day,s_day=s_day,tt_sales=tt_sales,tt_profit=tt_profit,tt_sales_m=tt_sales_m,tt_profit_m=tt_profit_m)
 
 @app.route('/base')
 def base():

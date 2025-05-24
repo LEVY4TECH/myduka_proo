@@ -67,3 +67,35 @@ def add_user(values):
     insert="insert into users(firstname, lastname, email, password)values(%s, %s, %s, %s)"
     cur.execute(insert,values)
     conn.commit()
+
+def total_sales():
+    cur.execute("select sum(products.selling_price*sales.quantity) as total_sales from sales join products on sales.productid = products.productid")
+    total_sales=cur.fetchall()
+    return total_sales
+
+x = total_sales()
+# print(x)
+
+def total_profit():
+    cur.execute("select sum((products.selling_price - products.buying_price)*sales.quantity) as total_profit from products join sales on products.productid = sales.productid")
+    total_profit = cur.fetchall()
+    return total_profit
+
+y = total_profit()
+# print(y)
+
+def total_sales_m():
+    cur.execute("select sum(products.selling_price*sales.quantity) as total_sales_m from sales join products on sales.productid = products.productid WHERE DATE_TRUNC('month',sales.created_at::timestamp) = DATE_TRUNC('month',CURRENT_DATE);")
+    total_sales_m = cur.fetchall()
+    return total_sales_m
+
+z = total_sales_m()
+# print(z)
+
+def total_profit_m():
+    cur.execute("select sum((products.selling_price - products.buying_price)*sales.quantity) as total_profit_m from products join sales on products.productid = sales.productid WHERE DATE_TRUNC('month',sales.created_at::timestamp) = DATE_TRUNC('month',CURRENT_DATE);")
+    total_profit_m = cur.fetchall()
+    return total_profit_m
+
+k = total_profit_m()
+# print(k)
