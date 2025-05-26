@@ -99,3 +99,7 @@ def total_profit_m():
 
 k = total_profit_m()
 # print(k)
+
+def update_products(values):
+    cur.execute("update products set productname = %s, buying_price = %s, selling_price = %s where productid = %s",values)
+    conn.commit()

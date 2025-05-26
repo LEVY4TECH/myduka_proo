@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,redirect,url_for,session,flash
 
-from database import fetch_products,fetch_sales,insert_products,insert_sales,profit_per_product,profit_per_day,sales_per_product,sales_per_day,check_user,add_user,total_sales,total_profit,total_sales_m,total_profit_m
+from database import fetch_products,fetch_sales,insert_products,insert_sales,profit_per_product,profit_per_day,sales_per_product,sales_per_day,check_user,add_user,total_sales,total_profit,total_sales_m,total_profit_m,update_products
 
 from flask_bcrypt import Bcrypt
 
@@ -137,6 +137,19 @@ def logout():
     session.pop('email',None)
     flash("Logged out successfully", "info")
     return redirect(url_for('login'))
+
+
+@app.route('/update_products',methods=['GET','POST'])
+def update_product():
+    if request.method == 'POST':
+        pid = request.form['pid']
+        name = request.form['p_name']
+        buying_price = request.form['b_price']
+        selling_price = request.form['s_price']
+        edited_product = (name,buying_price,selling_price,pid)
+        update_products(edited_product)
+        flash("Product Edited successfully","success")
+        return redirect(url_for('products'))
 
 
 
